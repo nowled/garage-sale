@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Rating from '../components/Rating';
+import axios from 'axios';
 import {
   Row,
   Col,
@@ -10,10 +12,19 @@ import {
   ListGroupItem,
 } from 'react-bootstrap';
 
-import products from '../products';
-import Rating from '../components/Rating';
-
 const ProductPage = ({ match }) => {
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/products/${match.params.id}`);
+
+      setProduct(data);
+    };
+
+    fetchProduct();
+  }, [match]);
+
   const pRatingPrice = {
     backgroundColor: '#593196',
 
@@ -26,11 +37,10 @@ const ProductPage = ({ match }) => {
     opacity: 0.8,
   };
 
-  const buttonStyle = {
-    backgroundColor: '#593196',
-  };
+  // const buttonStyle = {
+  //   backgroundColor: '#593196',
+  // };
 
-  const product = products.find((p) => p._id === match.params.id);
   return (
     <>
       <Link className='btn btn-light my-3' to='/'>
