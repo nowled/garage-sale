@@ -1,6 +1,5 @@
-import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavLink } from 'react-bootstrap';
 
 const Header = () => {
   return (
@@ -14,14 +13,14 @@ const Header = () => {
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ml-auto'>
               <LinkContainer to='/cart'>
-                <Nav.Link>
+                <NavLink>
                   <i className='fas fa-shopping-cart'></i> Cart
-                </Nav.Link>
+                </NavLink>
               </LinkContainer>
               <LinkContainer to='/login'>
-                <Nav.Link>
+                <NavLink>
                   <i className='fas fa-user'></i> Sign In
-                </Nav.Link>
+                </NavLink>
               </LinkContainer>
             </Nav>
           </Navbar.Collapse>
