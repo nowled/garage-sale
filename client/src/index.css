@@ -6,7 +6,41 @@ h3{
   padding: 1rem 0;
 }
 
-.rating span{
-  margin: 0.1rem
+h1{
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+h2{
+  font-size: 1.4rem;
+  padding: 0.5rem;
 }
 
+.rating span{
+  margin: 0.1rem;
+}
+
+.mainColor{
+  background-color: #6610f2;
+  color: #fff;
+  opacity: 0.8;
+  border: 0.5px solid #fd7e14;
+}
+
+.itemProduct{
+  background-color: #593196;
+  color: #fff;
+
+  border: 0.5px solid #fff;
+}
+
+.secondaryColor{
+  background-color: #593196;
+  color: #fff;
+ 
+}
+.subtotal{
+  background-color: #593196;
+  color: #fff;
+  /* border-radius: 2%; */
+
+}

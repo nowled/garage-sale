@@ -17,19 +17,8 @@ import {
   Form,
 } from 'react-bootstrap';
 
-const pRatingPrice = {
-  backgroundColor: '#593196',
-  color: '#fff',
-};
-
-const pNameDescription = {
-  backgroundColor: '#6610f2',
-  color: '#fff',
-  opacity: 0.8,
-};
-
 const ProductPage = ({ match, history }) => {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
 
   const dispatch = useDispatch();
 
@@ -62,19 +51,19 @@ const ProductPage = ({ match, history }) => {
           </Col>
           <Col md={3}>
             <ListGroup variant='flush'>
-              <ListGroupItem style={pNameDescription}>
+              <ListGroupItem className='mainColor'>
                 <h3>{product.name}</h3>
               </ListGroupItem>
-              <ListGroupItem style={pRatingPrice}>
+              <ListGroupItem className='secondaryColor'>
                 <Rating
                   value={product.rating}
                   text={`${product.numReviews} reviews`}
                 />
               </ListGroupItem>
-              <ListGroupItem style={pRatingPrice}>
+              <ListGroupItem className='secondaryColor'>
                 Price: ${product.price}
               </ListGroupItem>
-              <ListGroupItem style={pNameDescription}>
+              <ListGroupItem className='mainColor'>
                 Description: {product.description}
               </ListGroupItem>
             </ListGroup>
@@ -82,7 +71,7 @@ const ProductPage = ({ match, history }) => {
           <Col md={3}>
             <Card>
               <ListGroup variant='flush'>
-                <ListGroupItem style={pNameDescription}>
+                <ListGroupItem className='mainColor'>
                   <Row>
                     <Col>Price:</Col>
                     <Col>
@@ -90,7 +79,7 @@ const ProductPage = ({ match, history }) => {
                     </Col>
                   </Row>
                 </ListGroupItem>
-                <ListGroupItem style={pNameDescription}>
+                <ListGroupItem className='mainColor'>
                   <Row>
                     <Col>Status:</Col>
                     <Col>
@@ -101,7 +90,7 @@ const ProductPage = ({ match, history }) => {
                   </Row>
                 </ListGroupItem>
                 {product.countInStock > 0 && (
-                  <ListGroupItem style={pRatingPrice}>
+                  <ListGroupItem className='mainColor'>
                     <Row>
                       <Col>Qty</Col>
                       <Col>
@@ -121,7 +110,7 @@ const ProductPage = ({ match, history }) => {
                   </ListGroupItem>
                 )}
 
-                <ListGroupItem style={pNameDescription}>
+                <ListGroupItem className='secondaryColor'>
                   <Button
                     onClick={addToCartHandler}
                     className='btn-block'
