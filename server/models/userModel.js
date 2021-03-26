@@ -32,6 +32,17 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bycrypt.compare(enteredPassword, this.password);
 };
 
+userSchema.pre('save', async function (next) {
+  //If we update our name or email, but not the password we don't want the bycrypt run because if it does it will create a new hash and we won't be able to login so lets check it
+
+  if (!this.isModified('password')) {
+    next();
+  }
+
+  const salt = await bycrypt.genSalt(10);
+  this.password = await bycrypt.hash(this.password, salt);
+});
+
 const User = mongoose.model('User', userSchema);
 
 export default User;

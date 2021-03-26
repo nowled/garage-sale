@@ -36,6 +36,7 @@ h2{
 .secondaryColor{
   background-color: #593196;
   color: #fff;
+  border-bottom:  0.5px solid #fd7e14;
  
 }
 .subtotal{
@@ -43,4 +44,13 @@ h2{
   color: #fff;
   /* border-radius: 2%; */
 
+}
+
+.orderItems{
+  color: #000;
+  background-color: #fae2fe;
+  
+  ;
+ 
+ 
 }
